@@ -23,7 +23,9 @@
 	"require":{
 		"php":">=5.3",
 		"contao/core":">=3.0.0,<4.0.0-dev",
-		"contao-community-alliance/composer-installer":"*"
+		"contao-community-alliance/composer-installer":"*",
+		"cliffparnitzky/monitoring":">=1.3.2",
+		"cliffparnitzky/vis.js":"*"
 	},
 	"extra":{
 		"contao":{
