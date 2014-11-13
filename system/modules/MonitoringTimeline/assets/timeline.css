@@ -1,0 +1,19 @@
+#monitoring-timeline {
+	width: 600px;
+	position: relative;
+}
+
+/* custom styles for individual status of items */
+#monitoring-timeline .item.range {
+	border-width: 0;
+	border-radius: 0;
+}
+#monitoring-timeline .item.okay {
+	background-color: #32cd32;
+}
+#monitoring-timeline .item.incomplete {
+	background-color: #ffd700;
+}
+#monitoring-timeline .item.error {
+	background-color: #cb032b;
+}

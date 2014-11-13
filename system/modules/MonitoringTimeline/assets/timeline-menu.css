@@ -1,0 +1,20 @@
+/* style the menu */
+#monitoring-timeline-menu {
+	background-color: white;
+	border-radius: 0 0 0 5px;
+	display: none;
+	margin-right: 1px;
+	margin-top: 1px;
+	padding: 3px 3px 0;
+	position: absolute;
+	right: 0;
+	z-index: 1000;
+}
+
+#monitoring-timeline:hover #monitoring-timeline-menu {
+	display: block;
+}
+
+#monitoring-timeline-menu img {
+	cursor: pointer;
+}
