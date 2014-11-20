@@ -1,5 +1,5 @@
 {
-	"name":"cliffparnitzky/monitoring-timeline",
+	"name":"contao-monitoring/monitoring-timeline",
 	"description":"Provides timeline components for the Contao Monitoring system.",
 	"keywords":["contao","monitoring"],
 	"type":"contao-module",
@@ -24,7 +24,7 @@
 		"php":">=5.3",
 		"contao/core":">=3.0.0,<4.0.0-dev",
 		"contao-community-alliance/composer-installer":"*",
-		"cliffparnitzky/monitoring":">=1.3.2",
+		"contao-monitoring/monitoring":">=1.3.2",
 		"cliffparnitzky/vis.js":"*"
 	},
 	"extra":{
