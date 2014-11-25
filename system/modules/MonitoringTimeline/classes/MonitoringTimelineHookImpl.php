@@ -27,18 +27,20 @@
  * @license    LGPL
  */
 
-// adding header callback
-$GLOBALS['TL_DCA']['tl_monitoring_test']['list']['sorting']['header_callback'] = array('tl_monitoring_test_timeline', 'addTimelineToHeader');
+/**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace Monitoring;
 
 /**
- * Class tl_monitoring_test_timeline
+ * Class MonitoringTimelineHookImpl
  *
- * Provide miscellaneous methods that are used by the data configuration array.
+ * Implementation of hooks.
  * @copyright  Cliff Parnitzky 2014
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class tl_monitoring_test_timeline extends Backend
+class MonitoringTimelineHookImpl extends \Backend
 {
 	/**
 	 * Constructor
@@ -51,10 +53,10 @@ class tl_monitoring_test_timeline extends Backend
 	/**
 	 * Modify the header ... add the timeline
 	 * @param  $arrHeaderFields  the headerfields given from list->sorting
-	 * @param  Datacontainer $dc a Datacontainer Object
-	 * @return Array             The manipulated headerfields
+	 * @param  DataContainer $dc a DataContainer Object
+	 * @return Array The manipulated headerfields
 	 */
-	public function addTimelineToHeader($arrHeaderFields, Datacontainer $dc)
+	public function addTimelineToHeader($arrHeaderFields, \DataContainer $dc)
 	{
 		$monitoringEntryId = (int) $dc->id;
 		
@@ -76,13 +78,13 @@ class tl_monitoring_test_timeline extends Backend
 		while($objMonitoringTest->next())
 		{
 			$strData .= "{'start': new Date(" . date('Y', $objMonitoringTest->date) . ", "
-																				. (date('m', $objMonitoringTest->date) - 1) . ", "
-																				. date('d', $objMonitoringTest->date) . ", "
-																				. date('H', $objMonitoringTest->date) . ", 0, 0), 'end': new Date("
-																				. date('Y', $objMonitoringTest->date) . ", "
-																				. (date('m', $objMonitoringTest->date) - 1) . ", "
-																				. date('d', $objMonitoringTest->date) . ", "
-																				. date('H', $objMonitoringTest->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
+					  . (date('m', $objMonitoringTest->date) - 1) . ", "
+					  . date('d', $objMonitoringTest->date) . ", "
+					  . date('H', $objMonitoringTest->date) . ", 0, 0), 'end': new Date("
+					  . date('Y', $objMonitoringTest->date) . ", "
+					  . (date('m', $objMonitoringTest->date) - 1) . ", "
+					  . date('d', $objMonitoringTest->date) . ", "
+					  . date('H', $objMonitoringTest->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
 		}
 		
 		$arrHeaderFields[$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['header_field']] = <<<EOT

@@ -31,4 +31,9 @@
  * Frontend modules
  */
 
+/**
+ * Hooks
+ */
+$GLOBALS['TL_HOOKS']['monitoringExtendEntryHeader'][] = array('MonitoringTimelineHookImpl', 'addTimelineToHeader');
+
 ?>
