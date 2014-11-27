@@ -28,11 +28,6 @@
  */
 
 /**
- * Fields
- */
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['header_field'] = 'Timeline';
-
-/**
  * Timeline menu
  */
 $GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']    = 'Zoom in';

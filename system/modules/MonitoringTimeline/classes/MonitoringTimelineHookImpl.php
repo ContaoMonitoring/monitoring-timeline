@@ -71,23 +71,23 @@ class MonitoringTimelineHookImpl extends \Backend
 		$GLOBALS['TL_CSS'][] = 'system/modules/MonitoringTimeline/assets/timeline-menu.min.css';
 		$GLOBALS['TL_MOOTOOLS'][] = '<script src="system/modules/MonitoringTimeline/assets/timeline-menu.min.js"></script>';
 		
-		$objMonitoringTest = $this->Database->prepare("SELECT * FROM tl_monitoring_test WHERE pid = ? ORDER BY date")
-																				 ->execute($monitoringEntryId);
+		$objMonitoringTests = $this->Database->prepare("SELECT * FROM tl_monitoring_test WHERE pid = ? ORDER BY date")
+											 ->execute($monitoringEntryId);
 																				 
 		$strData = "";
-		while($objMonitoringTest->next())
+		while($objMonitoringTests->next())
 		{
-			$strData .= "{'start': new Date(" . date('Y', $objMonitoringTest->date) . ", "
-					  . (date('m', $objMonitoringTest->date) - 1) . ", "
-					  . date('d', $objMonitoringTest->date) . ", "
-					  . date('H', $objMonitoringTest->date) . ", 0, 0), 'end': new Date("
-					  . date('Y', $objMonitoringTest->date) . ", "
-					  . (date('m', $objMonitoringTest->date) - 1) . ", "
-					  . date('d', $objMonitoringTest->date) . ", "
-					  . date('H', $objMonitoringTest->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
+			$strData .= "{'start': new Date(" . date('Y', $objMonitoringTests->date) . ", "
+					  . (date('m', $objMonitoringTests->date) - 1) . ", "
+					  . date('d', $objMonitoringTests->date) . ", "
+					  . date('H', $objMonitoringTests->date) . ", 0, 0), 'end': new Date("
+					  . date('Y', $objMonitoringTests->date) . ", "
+					  . (date('m', $objMonitoringTests->date) - 1) . ", "
+					  . date('d', $objMonitoringTests->date) . ", "
+					  . date('H', $objMonitoringTests->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTests->status) . "'},";
 		}
 		
-		$arrHeaderFields[$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['header_field']] = <<<EOT
+		$arrHeaderFields[$GLOBALS['TL_LANG']['tl_monitoring']['timeline'][0]] = <<<EOT
 <div id="monitoring-timeline">
 	<div id="monitoring-timeline-menu">
 		<img id="zoomIn" src="system/modules/MonitoringTimeline/assets/zoom-in.png" alt="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']}" title="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']}" />

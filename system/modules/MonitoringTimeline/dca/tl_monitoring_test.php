@@ -28,11 +28,8 @@
  */
 
 /**
- * Timeline menu
+ * Add to header fields
  */
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']    = 'Vergrößern';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-out']   = 'Verkleinern';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-left']  = 'Nach links bewegen';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-right'] = 'Nach rechts bewegen';
+$GLOBALS['TL_DCA']['tl_monitoring_test']['list']['sorting']['headerFields'][] = "timeline";
 
 ?>
