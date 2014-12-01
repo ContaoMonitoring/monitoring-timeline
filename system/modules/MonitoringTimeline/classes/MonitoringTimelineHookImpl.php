@@ -71,20 +71,36 @@ class MonitoringTimelineHookImpl extends \Backend
 		$GLOBALS['TL_CSS'][] = 'system/modules/MonitoringTimeline/assets/timeline-menu.min.css';
 		$GLOBALS['TL_MOOTOOLS'][] = '<script src="system/modules/MonitoringTimeline/assets/timeline-menu.min.js"></script>';
 		
-		$objMonitoringTests = $this->Database->prepare("SELECT * FROM tl_monitoring_test WHERE pid = ? ORDER BY date")
+		$objMonitoringTest = $this->Database->prepare("SELECT * FROM tl_monitoring_test WHERE pid = ? ORDER BY date")
 											 ->execute($monitoringEntryId);
-																				 
+		
 		$strData = "";
-		while($objMonitoringTests->next())
+		$objLastMonitoringTestDate = null;
+		if ($objMonitoringTest->next())
 		{
-			$strData .= "{'start': new Date(" . date('Y', $objMonitoringTests->date) . ", "
-					  . (date('m', $objMonitoringTests->date) - 1) . ", "
-					  . date('d', $objMonitoringTests->date) . ", "
-					  . date('H', $objMonitoringTests->date) . ", 0, 0), 'end': new Date("
-					  . date('Y', $objMonitoringTests->date) . ", "
-					  . (date('m', $objMonitoringTests->date) - 1) . ", "
-					  . date('d', $objMonitoringTests->date) . ", "
-					  . date('H', $objMonitoringTests->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTests->status) . "'},";
+			$objLastMonitoringTestDate = $objMonitoringTest->date;
+		}
+		while($objMonitoringTest->next())
+		{
+			$strData .= "{'start': new Date"
+										. "("
+											. date('Y', $objLastMonitoringTestDate) . ", "
+											. (date('m', $objLastMonitoringTestDate) - 1) . ", "
+											. date('d', $objLastMonitoringTestDate) . ", "
+											. date('H', $objLastMonitoringTestDate) . ", "
+											. date('i', $objLastMonitoringTestDate) . ", "
+											. date('s', $objLastMonitoringTestDate)
+										. "),"
+								 . "'end': new Date"
+										. "("
+											. date('Y', $objMonitoringTest->date) . ", "
+											. (date('m', $objMonitoringTest->date) - 1) . ", "
+											. date('d', $objMonitoringTest->date) . ", "
+											. date('H', $objMonitoringTest->date) . ", "
+											. date('i', $objMonitoringTest->date) . ", "
+											. date('s', $objMonitoringTest->date)
+										. "), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
+			$objLastMonitoringTestDate = $objMonitoringTest->date;
 		}
 		
 		$today = time();
