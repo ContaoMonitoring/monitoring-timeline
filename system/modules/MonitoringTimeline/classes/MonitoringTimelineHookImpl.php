@@ -87,6 +87,18 @@ class MonitoringTimelineHookImpl extends \Backend
 					  . date('H', $objMonitoringTests->date) . ", 59, 59), 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTests->status) . "'},";
 		}
 		
+		$today = time();
+		
+		$startDate = mktime(0, 0, 0, date("m", $today)  , date("d", $today) - 30, date("Y", $today));
+		$startDateDay = date("d", $startDate);
+		$startDateMonth = date("m", $startDate) - 1; // note that months are zero-based in the JavaScript Date object
+		$startDateYear = date("Y", $startDate);
+		
+		$endDate = mktime(0, 0, 0, date("m", $today)  , date("d", $today) + 2, date("Y", $today));
+		$endDateDay = date("d", $endDate);
+		$endDateMonth = date("m", $endDate) - 1; // note that months are zero-based in the JavaScript Date object
+		$endDateYear = date("Y", $endDate);
+		
 		$arrHeaderFields[$GLOBALS['TL_LANG']['tl_monitoring']['timeline'][0]] = <<<EOT
 <div id="monitoring-timeline">
 	<div id="monitoring-timeline-menu">
@@ -106,7 +118,9 @@ class MonitoringTimelineHookImpl extends \Backend
 	var options = {
 		editable: false,
 		stack: false,
-		selectable: false
+		selectable: false,
+		start: new Date({$startDateYear}, {$startDateMonth}, {$startDateDay}, 0, 0, 0),
+		end: new Date({$endDateYear}, {$endDateMonth}, {$endDateDay}, 0, 0, 0)
 	};
 
 	// create the timeline
