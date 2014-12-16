@@ -30,6 +30,6 @@
 /**
  * Define name and tooltip for preferences (inactive modules)
  */
-$GLOBALS['TL_LANG']['MOD']['MonitoringTimeline'] = 'Provides timeline components for the Contao monitoring system.';
+$GLOBALS['TL_LANG']['MOD']['MonitoringTimeline'] = 'Provides timeline components for the Contao Monitoring system.';
 
 ?>
