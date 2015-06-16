@@ -21,7 +21,7 @@
 		"contao/core":">=3.0.0,<4.0.0-dev",
 		"contao-community-alliance/composer-installer":"*",
 		"contao-monitoring/monitoring":">=1.4.0",
-		"cliffparnitzky/vis.js":"*"
+		"cliffparnitzky/vis.js":"~4.2"
 	},
 	"extra":{
 		"contao":{

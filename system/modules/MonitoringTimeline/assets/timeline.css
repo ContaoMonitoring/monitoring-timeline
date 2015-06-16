@@ -12,16 +12,16 @@
 }
 
 /* custom styles for individual status of items */
-#monitoring-timeline .item.range {
+#monitoring-timeline .vis-item.vis-range {
 	border-width: 0;
 	border-radius: 0;
 }
-#monitoring-timeline .item.okay {
+#monitoring-timeline .vis-item.okay {
 	background-color: #32cd32;
 }
-#monitoring-timeline .item.incomplete {
+#monitoring-timeline .vis-item.incomplete {
 	background-color: #ffd700;
 }
-#monitoring-timeline .item.error {
+#monitoring-timeline .vis-item.error {
 	background-color: #cb032b;
 }
