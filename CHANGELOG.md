@@ -2,6 +2,19 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
+Version 1.1.3 (2016-10-25)
+--------------------------
+- Contao 3.5 ready
+
+Version 1.1.2 (2015-06-16)
+--------------------------
+- using vis.js 4.2 and above with its new CSS classes
+- setting correct composer plugin dependency
+
+Version 1.1.1 (2015-03-30)
+--------------------------
+- correction of text errors
+
 Version 1.1.0 (2014-12-01)
 --------------------------
 - using hook to extend monitoring entry header (due to changes in core package)
