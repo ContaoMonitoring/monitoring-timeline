@@ -2,6 +2,10 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
+Version 1.1.4 (2016-12-14)
+--------------------------
+- added recommendation of `contao-monitoring/monitoring-compression`
+
 Version 1.1.3 (2016-10-25)
 --------------------------
 - Contao 3.5 ready

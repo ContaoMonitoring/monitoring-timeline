@@ -24,6 +24,9 @@
 		"contao-monitoring/monitoring":"~1.7",
 		"cliffparnitzky/vis.js":"~4.2"
 	},
+	"suggest" : {
+		"contao-monitoring/monitoring-compression" : "Provides components to compress the test results for the Contao Monitoring system."
+	},
 	"extra":{
 		"contao":{
 			"sources":{
