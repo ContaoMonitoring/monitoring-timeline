@@ -11,9 +11,9 @@ Provides timeline components for the [[Contao Monitoring]](https://github.com/Co
 Installation
 ------------
 
-The extension is not published in contao extension repository.
+Install the extension via composer: [contao-monitoring/monitoring-timeline](https://packagist.org/packages/contao-monitoring/monitoring-timeline).
 
-Install it manually or via composer: [contao-monitoring/monitoring-timeline](https://packagist.org/packages/contao-monitoring/monitoring-timeline).
+If you prefer to install it manually, download the latest release here: https://github.com/ContaoMonitoring/monitoring-timeline/releases
 
 
 Tracker
@@ -33,8 +33,10 @@ Dependency
 ----------
 
 This extension is dependent on the following extensions:
+
 - [[contao-monitoring/monitoring]](https://packagist.org/packages/contao-monitoring/monitoring),
 - [[cliffparnitzky/vis.js]](https://packagist.org/packages/cliffparnitzky/vis.js)
 
 The following extensions are recommended:
+
 - [[contao-monitoring/monitoring-compression]](https://packagist.org/packages/contao-monitoring/monitoring-compression): avoid performance issues with to much entries in the timeline
