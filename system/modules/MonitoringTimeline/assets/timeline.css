@@ -9,6 +9,7 @@
 #monitoring-timeline {
 	width: 600px;
 	position: relative;
+	padding: 2px 0;
 }
 
 /* custom styles for individual status of items */
