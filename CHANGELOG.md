@@ -2,6 +2,10 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
+Version 1.1.5 (2017-05-04)
+--------------------------
+- added small padding (CSS issue) for the timeline container
+
 Version 1.1.4 (2016-12-14)
 --------------------------
 - added recommendation of `contao-monitoring/monitoring-compression`
