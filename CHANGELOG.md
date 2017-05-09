@@ -2,7 +2,7 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
-Version 1.2.0 (2017-05-08)
+Version 1.2.0 (2017-05-09)
 --------------------------
 - added usage of `MonitoringTestModel`
 
