@@ -71,10 +71,10 @@ class MonitoringTimelineHookImpl extends \Backend
     $GLOBALS['TL_CSS'][] = 'system/modules/MonitoringTimeline/assets/timeline-menu.min.css';
     $GLOBALS['TL_MOOTOOLS'][] = '<script src="system/modules/MonitoringTimeline/assets/timeline-menu.min.js"></script>';
     
+    $strData = "";
     $objMonitoringTest = \MonitoringTestModel::findByPid($monitoringEntryId, array('order' => "date"));
     if ($objMonitoringTest !== null)
     {
-      $strData = "";
       $objLastMonitoringTestDate = null;
       if ($objMonitoringTest->next())
       {
