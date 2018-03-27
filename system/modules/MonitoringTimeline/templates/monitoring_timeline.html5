@@ -1,0 +1,124 @@
+
+<div id="tl_buttons">
+  <a href="<?= $this->href ?>" class="header_back" title="<?= $this->title ?>"><?= $this->button ?></a>
+</div>
+
+<div id="tl_extension">
+  <h2 class="sub_headline"><?= $this->headline ?></h2>
+  <style type="text/css">
+    .vis-point {
+      stroke-width:2px;
+      fill-opacity:1.0;
+    }
+
+    .vis-legend-background {
+      stroke-width:1px;
+      fill-opacity:0.9;
+      fill: #ffffff;
+      stroke: #c2c2c2;
+    }
+
+    .vis-outline {
+      stroke-width:1px;
+      fill-opacity:1;
+      fill: #ffffff;
+      stroke: #e5e5e5;
+    }
+
+    .vis-icon-fill {
+      fill-opacity:0.3;
+      stroke: none;
+    }
+
+    div.description-container {
+      float:left;
+      height:30px;
+      width:160px;
+      padding-left:5px;
+      padding-right:5px;
+      line-height: 15px;
+      overflow: hidden;
+    }
+
+    div.icon-container {
+      float:left;
+    }
+
+    div.legend-element-container {
+      display:inline-block;
+      width:200px;
+      height:30px;
+      border-style:solid;
+      border-width:1px;
+      border-color: #e0e0e0;
+      background-color: #d3e6ff;
+      margin:4px;
+      padding:4px;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor:pointer;
+    }
+    div.legend-element-container.hidden {
+      background-color: #ffffff;
+    }
+
+    svg.legend-icon {
+      width:30px;
+      height:30px;
+    }
+    
+    text {
+      display: none;
+      cursor: default;
+    }
+    
+    circle:hover + text {
+      display: block;
+    }
+
+  </style>
+  <div id="monitoring-timeline">
+    <div id="monitoring-timeline-menu">
+      <img id="zoomInTimeline" src="system/modules/MonitoringTimeline/assets/zoom-in.png" alt="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']; ?>" title="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']; ?>" />
+      <img id="zoomOutTimeline" src="system/modules/MonitoringTimeline/assets/zoom-out.png" alt="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']; ?>" title="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']; ?>" />
+      <img id="moveLeftTimeline" src="system/modules/MonitoringTimeline/assets/move-left.png" alt="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']; ?>" title="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']; ?>" />
+      <img id="moveRightTimeline" src="system/modules/MonitoringTimeline/assets/move-right.png" alt="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right']; ?>" title="<?php echo $GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right']; ?>" />
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // create a dataSet with groups
+    var groups = new vis.DataSet();
+<?php foreach ($this->chartGroups as $groupId=>$group): ?>
+    groups.add(
+    {
+      id: <?php echo $groupId; ?>,
+      content: '<b><?php echo $group['customer']; ?></b><br/><?php echo $group['website']; ?>'
+    });
+<?php endforeach; ?>
+    // create data
+    // note that months are zero-based in the JavaScript Date object
+    var data = new vis.DataSet([<?php echo $this->chartData; ?>]);
+
+    // specify options
+    var options = {
+      editable: false,
+      stack: false,
+      selectable: false,
+      start: new Date(<?php echo $this->startDateYear; ?>, <?php echo $this->startDateMonth; ?>, <?php echo $this->startDateDay; ?>, 0, 0, 0),
+      end: new Date(<?php echo $this->endDateYear; ?>, <?php echo $this->endDateMonth; ?>, <?php echo $this->endDateDay; ?>, 0, 0, 0)
+    };
+
+    // create the graph
+    var container = document.getElementById('monitoring-timeline');
+    var timeline = new vis.Timeline(container);
+    timeline.setOptions(options);
+    timeline.setGroups(groups);
+    timeline.setItems(data);
+    
+  </script>
+</div>

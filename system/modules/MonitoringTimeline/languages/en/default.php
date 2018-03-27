@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2016 Leo Feyer
+ * Copyright (C) 2005-2018 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,21 +21,18 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2016
+ * @copyright  Cliff Parnitzky 2018-2018
  * @author     Cliff Parnitzky
  * @package    MonitoringTimeline
  * @license    LGPL
  */
 
-$GLOBALS['BE_MOD']['ContaoMonitoring']['monitoringTimeline'] = array
-(
-  'callback'   => 'ModuleTimeline',
-  'icon'       => 'system/modules/MonitoringTimeline/assets/icon.png'
-);
-
 /**
- * Hooks
+ * Timeline menu
  */
-$GLOBALS['TL_HOOKS']['monitoringExtendEntryHeader'][] = array('MonitoringTimelineHookImpl', 'addTimelineToHeader');
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']    = 'Zoom in';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']   = 'Zoom out';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']  = 'Move left';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right'] = 'Move right';
 
 ?>
