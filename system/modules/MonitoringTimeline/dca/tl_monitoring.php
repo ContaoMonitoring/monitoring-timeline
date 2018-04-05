@@ -21,20 +21,29 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2018
+ * @copyright  Cliff Parnitzky 2018-2018
  * @author     Cliff Parnitzky
  * @package    MonitoringTimeline
  * @license    LGPL
  */
 
 /**
- * Fields
+ * Add css for styling global operations button
  */
-$GLOBALS['TL_LANG']['tl_monitoring']['timeline'] = array('Zeitleiste', '');
+$GLOBALS['TL_CSS'][] = 'system/modules/MonitoringTimeline/assets/styles.css';
 
 /**
- * Buttons
+ * Add global operations
  */
-$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Zeitleisten für Filterung anzeigen', 'Zeigt alle Zeitleisten für die aktuell gefilterten Monitoring Einträge an, welche auch aktiv sind.');
+array_insert($GLOBALS['TL_DCA']['tl_monitoring']['list']['global_operations'], count($GLOBALS['TL_DCA']['tl_monitoring']['list']['global_operations']) - 1, array
+(
+    'filteredTimelines' => array
+    (
+        'label'               => &$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'],
+        'href'                => 'key=navigateToMonitoringTimeline',
+        'class'               => 'header_icon tl_monitoring_filteredTimelines',
+        'attributes'          => 'onclick="Backend.getScrollOffset()"'
+    )
+));
 
 ?>

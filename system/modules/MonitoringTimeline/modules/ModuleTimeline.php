@@ -67,43 +67,52 @@ class ModuleTimeline extends \BackendModule
     $arrGroups = array();
     $strData = "";
     
+    $arrFilteredIds = array();
+    if (!empty(\Input::get("ids")))
+    {
+      $arrFilteredIds = explode(",", \Input::get("ids"));
+    }
+    
     $objMonitoringEntry = \MonitoringModel::findAllActive();
     if ($objMonitoringEntry !== null)
     {
       while ($objMonitoringEntry->next())
       {
-        $arrGroups[$objMonitoringEntry->id] = array('customer' => $objMonitoringEntry->customer, 'website' => $objMonitoringEntry->website);
-        
-        $objMonitoringTest = \MonitoringTestModel::findByPid($objMonitoringEntry->id, array('order' => "date"));
-        if ($objMonitoringTest !== null)
+        if (empty($arrFilteredIds) || in_array($objMonitoringEntry->id, $arrFilteredIds))
         {
-          $objLastMonitoringTestDate = null;
-          if ($objMonitoringTest->next())
+          $arrGroups[$objMonitoringEntry->id] = array('customer' => $objMonitoringEntry->customer, 'website' => $objMonitoringEntry->website);
+          
+          $objMonitoringTest = \MonitoringTestModel::findByPid($objMonitoringEntry->id, array('order' => "date"));
+          if ($objMonitoringTest !== null)
           {
-            $objLastMonitoringTestDate = $objMonitoringTest->date;
-          }
-          while($objMonitoringTest->next())
-          {
-            if ($objMonitoringTest->response_time > 0.0)
+            $objLastMonitoringTestDate = null;
+            if ($objMonitoringTest->next())
             {
-              $strData .= "{'start': new Date"
-                            . "("
-                              . date('Y', $objLastMonitoringTestDate) . ", "
-                              . (date('m', $objLastMonitoringTestDate) - 1) . ", "
-                              . date('d', $objLastMonitoringTestDate) . ", "
-                              . date('H', $objLastMonitoringTestDate) . ", "
-                              . date('i', $objLastMonitoringTestDate) . ", "
-                              . date('s', $objLastMonitoringTestDate)
-                            . "), 'end': new Date"
-                            . "("
-                              . date('Y', $objMonitoringTest->date) . ", "
-                              . (date('m', $objMonitoringTest->date) - 1) . ", "
-                              . date('d', $objMonitoringTest->date) . ", "
-                              . date('H', $objMonitoringTest->date) . ", "
-                              . date('i', $objMonitoringTest->date) . ", "
-                              . date('s', $objMonitoringTest->date)
-                            . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
               $objLastMonitoringTestDate = $objMonitoringTest->date;
+            }
+            while($objMonitoringTest->next())
+            {
+              if ($objMonitoringTest->response_time > 0.0)
+              {
+                $strData .= "{'start': new Date"
+                              . "("
+                                . date('Y', $objLastMonitoringTestDate) . ", "
+                                . (date('m', $objLastMonitoringTestDate) - 1) . ", "
+                                . date('d', $objLastMonitoringTestDate) . ", "
+                                . date('H', $objLastMonitoringTestDate) . ", "
+                                . date('i', $objLastMonitoringTestDate) . ", "
+                                . date('s', $objLastMonitoringTestDate)
+                              . "), 'end': new Date"
+                              . "("
+                                . date('Y', $objMonitoringTest->date) . ", "
+                                . (date('m', $objMonitoringTest->date) - 1) . ", "
+                                . date('d', $objMonitoringTest->date) . ", "
+                                . date('H', $objMonitoringTest->date) . ", "
+                                . date('i', $objMonitoringTest->date) . ", "
+                                . date('s', $objMonitoringTest->date)
+                              . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
+                $objLastMonitoringTestDate = $objMonitoringTest->date;
+              }
             }
           }
         }

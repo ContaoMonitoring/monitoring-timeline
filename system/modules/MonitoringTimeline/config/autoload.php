@@ -24,6 +24,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
+	'Monitoring\MonitoringTimeline'         => 'system/modules/MonitoringTimeline/classes/MonitoringTimeline.php',
 	'Monitoring\MonitoringTimelineHookImpl' => 'system/modules/MonitoringTimeline/classes/MonitoringTimelineHookImpl.php',
 
 	// Modules
