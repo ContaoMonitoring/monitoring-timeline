@@ -35,6 +35,6 @@ $GLOBALS['TL_LANG']['tl_monitoring']['timeline'] = array('Zeitleiste', '');
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Zeitleisten für Filterung anzeigen', 'Zeigt alle Zeitleisten für die aktuell gefilterten Monitoring Einträge an, welche auch aktiv sind.');
+$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Zeitleisten für Filterung anzeigen', 'Zeigt alle Zeitleisten für die aktuell gefilterten Monitoring Einträge an.');
 
 ?>

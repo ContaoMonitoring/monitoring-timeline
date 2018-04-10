@@ -35,6 +35,6 @@ $GLOBALS['TL_LANG']['tl_monitoring']['timeline'] = array('Timeline', '');
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Show timelines for filter', 'Show all timelines for the current filtered monitoring entries, which are also active .');
+$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Show timelines for filter', 'Show all timelines for the current filtered monitoring entries.');
 
 ?>
