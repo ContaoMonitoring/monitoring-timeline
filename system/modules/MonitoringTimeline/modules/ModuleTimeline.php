@@ -73,46 +73,52 @@ class ModuleTimeline extends \BackendModule
       $arrFilteredIds = explode(",", \Input::get("ids"));
     }
     
-    $objMonitoringEntry = \MonitoringModel::findAllActive();
+    $objMonitoringEntry = null;
+    if (!empty($arrFilteredIds))
+    {
+      $objMonitoringEntry = \MonitoringModel::findMultipleByIds($arrFilteredIds);
+    }
+    else
+    {
+      $objMonitoringEntry = \MonitoringModel::findAllActive();
+    }
+    
     if ($objMonitoringEntry !== null)
     {
       while ($objMonitoringEntry->next())
       {
-        if (empty($arrFilteredIds) || in_array($objMonitoringEntry->id, $arrFilteredIds))
+        $arrGroups[$objMonitoringEntry->id] = array('customer' => $objMonitoringEntry->customer, 'website' => $objMonitoringEntry->website);
+        
+        $objMonitoringTest = \MonitoringTestModel::findByPid($objMonitoringEntry->id, array('order' => "date"));
+        if ($objMonitoringTest !== null)
         {
-          $arrGroups[$objMonitoringEntry->id] = array('customer' => $objMonitoringEntry->customer, 'website' => $objMonitoringEntry->website);
-          
-          $objMonitoringTest = \MonitoringTestModel::findByPid($objMonitoringEntry->id, array('order' => "date"));
-          if ($objMonitoringTest !== null)
+          $objLastMonitoringTestDate = null;
+          if ($objMonitoringTest->next())
           {
-            $objLastMonitoringTestDate = null;
-            if ($objMonitoringTest->next())
+            $objLastMonitoringTestDate = $objMonitoringTest->date;
+          }
+          while($objMonitoringTest->next())
+          {
+            if ($objMonitoringTest->response_time > 0.0)
             {
+              $strData .= "{'start': new Date"
+                            . "("
+                              . date('Y', $objLastMonitoringTestDate) . ", "
+                              . (date('m', $objLastMonitoringTestDate) - 1) . ", "
+                              . date('d', $objLastMonitoringTestDate) . ", "
+                              . date('H', $objLastMonitoringTestDate) . ", "
+                              . date('i', $objLastMonitoringTestDate) . ", "
+                              . date('s', $objLastMonitoringTestDate)
+                            . "), 'end': new Date"
+                            . "("
+                              . date('Y', $objMonitoringTest->date) . ", "
+                              . (date('m', $objMonitoringTest->date) - 1) . ", "
+                              . date('d', $objMonitoringTest->date) . ", "
+                              . date('H', $objMonitoringTest->date) . ", "
+                              . date('i', $objMonitoringTest->date) . ", "
+                              . date('s', $objMonitoringTest->date)
+                            . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
               $objLastMonitoringTestDate = $objMonitoringTest->date;
-            }
-            while($objMonitoringTest->next())
-            {
-              if ($objMonitoringTest->response_time > 0.0)
-              {
-                $strData .= "{'start': new Date"
-                              . "("
-                                . date('Y', $objLastMonitoringTestDate) . ", "
-                                . (date('m', $objLastMonitoringTestDate) - 1) . ", "
-                                . date('d', $objLastMonitoringTestDate) . ", "
-                                . date('H', $objLastMonitoringTestDate) . ", "
-                                . date('i', $objLastMonitoringTestDate) . ", "
-                                . date('s', $objLastMonitoringTestDate)
-                              . "), 'end': new Date"
-                              . "("
-                                . date('Y', $objMonitoringTest->date) . ", "
-                                . (date('m', $objMonitoringTest->date) - 1) . ", "
-                                . date('d', $objMonitoringTest->date) . ", "
-                                . date('H', $objMonitoringTest->date) . ", "
-                                . date('i', $objMonitoringTest->date) . ", "
-                                . date('s', $objMonitoringTest->date)
-                              . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
-                $objLastMonitoringTestDate = $objMonitoringTest->date;
-              }
             }
           }
         }
@@ -145,7 +151,7 @@ class ModuleTimeline extends \BackendModule
     $this->Template->href = $this->getReferer(true);
     $this->Template->title = specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);
     $this->Template->button = $GLOBALS['TL_LANG']['MSC']['backBT'];
-    $this->Template->headline = $GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline'];
+    $this->Template->headline = empty($arrFilteredIds) ? $GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline']['active'] : $GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline']['filtered'];
   }
 }
 

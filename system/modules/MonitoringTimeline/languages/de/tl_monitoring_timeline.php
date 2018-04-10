@@ -30,6 +30,7 @@
 /**
  * Misc
  */
-$GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline'] = 'Monitoring Zeitleisten aller aktiver Monitoring Einträge';
+$GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline']['active']   = 'Monitoring Zeitleisten aller aktiven Monitoring Einträge';
+$GLOBALS['TL_LANG']['tl_monitoring_timeline']['headline']['filtered'] = 'Monitoring Zeitleisten der gefilterten Monitoring Einträge';
 
 ?>
