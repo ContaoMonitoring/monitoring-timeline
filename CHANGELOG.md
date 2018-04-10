@@ -2,7 +2,7 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
-Version 1.3.0 (2018-03-xx)
+Version 1.3.0 (2018-04-10)
 --------------------------
 - added a backend view with timelines of all active monitored entries (see #6)
 
