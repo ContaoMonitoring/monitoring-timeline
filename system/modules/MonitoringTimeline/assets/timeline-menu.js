@@ -31,7 +31,7 @@ function zoom (percentage)
 }
 
 // attach events to the navigation buttons
-document.getElementById('zoomIn').onclick    = function () { zoom(-0.2); };
-document.getElementById('zoomOut').onclick   = function () { zoom( 0.2); };
-document.getElementById('moveLeft').onclick  = function () { move( 0.2); };
-document.getElementById('moveRight').onclick = function () { move(-0.2); };
+document.getElementById('zoomInTimeline').onclick    = function () { zoom(-0.2); };
+document.getElementById('zoomOutTimeline').onclick   = function () { zoom( 0.2); };
+document.getElementById('moveLeftTimeline').onclick  = function () { move( 0.2); };
+document.getElementById('moveRightTimeline').onclick = function () { move(-0.2); };

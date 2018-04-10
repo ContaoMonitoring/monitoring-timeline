@@ -32,4 +32,9 @@
  */
 $GLOBALS['TL_LANG']['MOD']['MonitoringTimeline'] = 'Stellt Timeline Komponenten für das Contao Monitoring System zur Verfügung.';
 
+/**
+ * Backend modules
+ */
+$GLOBALS['TL_LANG']['MOD']['monitoringTimeline'] = array('Zeitleisten', 'Zeigt eine Gesamtübersicht der Zeitleisten aller Monitoring Einträge.');
+
 ?>
