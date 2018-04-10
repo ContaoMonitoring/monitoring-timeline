@@ -21,20 +21,18 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2018
+ * @copyright  Cliff Parnitzky 2018-2018
  * @author     Cliff Parnitzky
  * @package    MonitoringTimeline
  * @license    LGPL
  */
 
 /**
- * Fields
+ * Timeline menu
  */
-$GLOBALS['TL_LANG']['tl_monitoring']['timeline'] = array('Zeitleiste', '');
-
-/**
- * Buttons
- */
-$GLOBALS['TL_LANG']['tl_monitoring']['filteredTimelines'] = array('Zeitleisten für Filterung anzeigen', 'Zeigt alle Zeitleisten für die aktuell gefilterten Monitoring Einträge an, welche auch aktiv sind.');
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']    = 'Zoom in';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']   = 'Zoom out';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']  = 'Move left';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right'] = 'Move right';
 
 ?>

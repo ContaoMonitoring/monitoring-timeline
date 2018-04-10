@@ -119,10 +119,10 @@ class MonitoringTimelineHookImpl extends \Backend
     $arrHeaderFields[$GLOBALS['TL_LANG']['tl_monitoring']['timeline'][0]] = <<<EOT
 <div id="monitoring-timeline">
   <div id="monitoring-timeline-menu">
-    <img id="zoomIn" src="system/modules/MonitoringTimeline/assets/zoom-in.png" alt="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']}" title="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']}" />
-    <img id="zoomOut" src="system/modules/MonitoringTimeline/assets/zoom-out.png" alt="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-out']}" title="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-out']}" />
-    <img id="moveLeft" src="system/modules/MonitoringTimeline/assets/move-left.png" alt="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-left']}" title="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-left']}" />
-    <img id="moveRight" src="system/modules/MonitoringTimeline/assets/move-right.png" alt="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-right']}" title="{$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-right']}" />
+    <img id="zoomInTimeline" src="system/modules/MonitoringTimeline/assets/zoom-in.png" alt="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']}" title="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']}" />
+    <img id="zoomOutTimeline" src="system/modules/MonitoringTimeline/assets/zoom-out.png" alt="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']}" title="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']}" />
+    <img id="moveLeftTimeline" src="system/modules/MonitoringTimeline/assets/move-left.png" alt="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']}" title="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']}" />
+    <img id="moveRightTimeline" src="system/modules/MonitoringTimeline/assets/move-right.png" alt="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right']}" title="{$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right']}" />
   </div>
 </div>
 

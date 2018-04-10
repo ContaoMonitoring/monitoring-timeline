@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2016 Leo Feyer
+ * Copyright (C) 2005-2018 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2016
+ * @copyright  Cliff Parnitzky 2018-2018
  * @author     Cliff Parnitzky
  * @package    MonitoringTimeline
  * @license    LGPL
@@ -30,9 +30,9 @@
 /**
  * Timeline menu
  */
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-in']    = 'Vergrößern';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['zoom-out']   = 'Verkleinern';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-left']  = 'Nach links bewegen';
-$GLOBALS['TL_LANG']['tl_monitoring_test']['timeline']['menu']['move-right'] = 'Nach rechts bewegen';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-in']    = 'Vergrößern';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['zoom-out']   = 'Verkleinern';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-left']  = 'Nach links bewegen';
+$GLOBALS['TL_LANG']['MSC']['MonitoringTimeline']['menu']['move-right'] = 'Nach rechts bewegen';
 
 ?>

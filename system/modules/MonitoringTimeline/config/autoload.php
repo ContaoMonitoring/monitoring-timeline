@@ -3,11 +3,9 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2016 Leo Feyer
+ * Copyright (c) 2005-2018 Leo Feyer
  *
- * @package MonitoringTimeline
- * @link    https://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @license LGPL-3.0+
  */
 
 
@@ -26,5 +24,18 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
+	'Monitoring\MonitoringTimeline'         => 'system/modules/MonitoringTimeline/classes/MonitoringTimeline.php',
 	'Monitoring\MonitoringTimelineHookImpl' => 'system/modules/MonitoringTimeline/classes/MonitoringTimelineHookImpl.php',
+
+	// Modules
+	'Monitoring\ModuleTimeline'             => 'system/modules/MonitoringTimeline/modules/ModuleTimeline.php',
+));
+
+
+/**
+ * Register the templates
+ */
+TemplateLoader::addFiles(array
+(
+	'monitoring_timeline' => 'system/modules/MonitoringTimeline/templates',
 ));
