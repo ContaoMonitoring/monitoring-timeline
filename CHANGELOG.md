@@ -2,6 +2,10 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
+Version 1.3.1 (2019-11-07)
+--------------------------
+- fixed filtering via search field effecting the filtered view (see #8)
+
 Version 1.3.0 (2018-04-10)
 --------------------------
 - added a backend view with timelines of all active monitored entries (see #6)
