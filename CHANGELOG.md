@@ -2,6 +2,10 @@
 Contao Extension "MonitoringTimeline"
 =====================================
 
+Version 1.4.0 (2019-11-18)
+--------------------------
+- added using parameterized colors to be color blind friendly (see #9)
+
 Version 1.3.1 (2019-11-07)
 --------------------------
 - fixed filtering via search field effecting the filtered view (see #8)
