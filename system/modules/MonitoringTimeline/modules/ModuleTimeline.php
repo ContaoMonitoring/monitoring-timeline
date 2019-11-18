@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2018 Leo Feyer
+ * Copyright (C) 2005-2019 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2018-2018
+ * @copyright  Cliff Parnitzky 2018-2019
  * @author     Cliff Parnitzky
  * @package    MonitoringTimeline
  * @license    LGPL
@@ -117,7 +117,7 @@ class ModuleTimeline extends \BackendModule
                               . date('H', $objMonitoringTest->date) . ", "
                               . date('i', $objMonitoringTest->date) . ", "
                               . date('s', $objMonitoringTest->date)
-                            . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': '" . strtolower($objMonitoringTest->status) . "'},";
+                            . "), 'group': " . $objMonitoringEntry->id . ", 'content': '&nbsp;', 'className': 'monitoring_status_" . strtolower($objMonitoringTest->status) . "'},";
               $objLastMonitoringTestDate = $objMonitoringTest->date;
             }
           }
