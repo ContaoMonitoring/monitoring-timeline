@@ -1,36 +1,40 @@
 {
-	"name":"contao-monitoring/monitoring-timeline",
-	"description":"Provides timeline components for the Contao Monitoring system.",
-	"keywords":["contao","monitoring","timeline"],
-	"type":"contao-module",
-	"homepage":"https://github.com/ContaoMonitoring/monitoring-timeline",
-	"license":"LGPL-3.0-or-later",
-	"authors":[
+	"name": "contao-monitoring/monitoring-timeline",
+	"description": "Provides timeline components for the Contao Monitoring system.",
+	"keywords": [
+		"contao",
+		"monitoring",
+		"timeline"
+	],
+	"type": "contao-module",
+	"homepage": "https://github.com/ContaoMonitoring",
+	"license": "LGPL-3.0-or-later",
+	"authors": [
 		{
-			"name":"Cliff Parnitzky",
-			"email":"contao@cliff-parnitzky.de",
-			"role":"Developer"
+			"name": "Cliff Parnitzky",
+			"email": "contao@cliff-parnitzky.de",
+			"role": "Developer"
 		}
 	],
-	"support":{
-		"email":"contao@cliff-parnitzky.de",
-		"issues":"https://github.com/ContaoMonitoring/monitoring-timeline/issues",
-		"source":"https://github.com/ContaoMonitoring/monitoring-timeline"
+	"support": {
+		"email": "contao@cliff-parnitzky.de",
+		"issues": "https://github.com/ContaoMonitoring/monitoring-timeline/issues",
+		"source": "https://github.com/ContaoMonitoring/monitoring-timeline"
 	},
-	"require":{
-		"php":">=5.3",
-		"contao/core-bundle":"~3.2 || ~4.4",
-		"contao-community-alliance/composer-plugin":"~2.4 || ~3.0",
-		"contao-monitoring/monitoring":"~1.11",
-		"cliffparnitzky/vis.js":"~4.10"
+	"require": {
+		"php": ">=7.4",
+		"contao/core-bundle": "~4.9",
+		"contao-community-alliance/composer-plugin": "~3.0",
+		"contao-monitoring/monitoring": "~1.11",
+		"cliffparnitzky/vis.js": "~4.10"
 	},
-	"suggest" : {
-		"contao-monitoring/monitoring-compression" : "Provides components to compress the test results for the Contao Monitoring system."
+	"suggest": {
+		"contao-monitoring/monitoring-compression": "Provides components to compress the test results for the Contao Monitoring system."
 	},
-	"extra":{
-		"contao":{
-			"sources":{
-				"system/modules/MonitoringTimeline":"system/modules/MonitoringTimeline"
+	"extra": {
+		"contao": {
+			"sources": {
+				"system/modules/MonitoringTimeline": "system/modules/MonitoringTimeline"
 			}
 		},
 		"branch-alias": {
